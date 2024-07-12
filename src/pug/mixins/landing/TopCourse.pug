@@ -1,0 +1,35 @@
+append variables
+  -
+    var courses= [
+      {
+        image:'a1.png',
+        title :'Urdu Chat Bot',
+      },
+      {
+        image:'a3.png',
+        title :'Urdu Siri',
+      },
+      {
+        image:'a2.png',
+        title :'Urdu Embedding Evaluation',
+      },
+      
+    ];
+
+mixin Courses(config)
+  .col-sm-6.col-lg-3.mb-4
+    .card.border-0.h-100
+      .position-relative
+        img.w-100(src=`${CWD}assets/img/gallery/${config.image}` alt='courses')
+        .ps-6
+          span.badge.bg-primary.rounded-0(style="padding: 11.1px 21px")
+      .card-body.px-0.py-3
+        h5.mb-0.font-sans-serif.fw-bold.fs-md-0.fs-lg-1!=config.title
+        a.text-muted.fs--1.stretched-link.text-decoration-none(href='#!')!=config.text    
+        
+mixin TopCourse 
+  +Section.py-6
+    .row 
+      h1.header-title.display-4.header.text-start.mb-5  TOP ARTICLES
+      each item in courses
+        +Courses(item)
